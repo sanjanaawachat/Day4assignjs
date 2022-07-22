@@ -1,0 +1,288 @@
+######################################//DAY 4 Assignment//#################################
+
+que1::
+
+What is a Temporal Dead Zone?
+
+ans:  
+
+Define TDZ:-------------->
+
+A temperal dead Zone is the area of block  where a variable is inaccessible 
+until the moment the computer completely initlaiziates it with a value 
+
+1] A block is a pair of braces ({...}) used to group multiple statements.
+
+2] Initialization occurs when you assign an initial value to a variable.
+
+console.log(varNumber); // undefined
+console.log(letNumber); // Doesn't log, as it throws a ReferenceError letNumber is 
+not defined
+
+var varNumber = 1;
+let letNumber = 1;
+
+=====================================================================================================
+
+que2 ::
+
+What is the for-in loop in JavaScript? Give its syntax
+
+ans:
+           
+1] 
+The for Loop:---------------------->
+
+The for loop repeats a block of code as long as a certain condition is met. 
+It is typically used to execute a block of code for certain number of times.
+
+Its syntax is: 
+
+for(initialization; condition; increment) { // Code to be executed.
+}
+                 ***************************************
+
+2]
+The for in Loop:------------------------->
+
+The for-in loop is a special type of a loop that iterates over the properties of an
+object, or the elements of an array. 
+
+Syntax:
+The generic syntax of the for-in loop is:
+    
+    for(variable in object) {
+        // Code to be executed
+    }
+
+
+for ex:
+
+   let arr=[3,1,5,4,8,2,9]
+   for(let i in arr){
+     console.log(i)
+   }
+      // output:-0 1 2 3 4 5 6
+
+    The loop counter i.e. variable in the for-in loop is a string, not a number. 
+    It contains the name of current property or the index of the current array element.
+
+    // An object with some properties 
+    var person = {"name": "Clark", "surname": "Kent", "age": "36"};
+     
+    // Loop through all the properties in the object  
+    for(var prop in person) {  
+       console.log(person);
+    }
+
+
+==================================================================================================
+
+    que3
+
+    Explain Local Scope, Block Scope, Functional Scope and Scope Chain in javascript
+
+    Ans:-----
+    1] Local Scope:variables declared inside a function is inside the local scope. They 
+    can only be accessed from within that function, that means they can't be accessed 
+    from outside code.
+     Ex:
+     function value(){
+             var x=2; //x can be access inside function only that is called local scope.
+         }
+
+    2] Function scope: Variables that are declared inside a function are called 
+    local variables and in the function scope. Local variables are accessible 
+    anywhere inside the function. 
+    Ex:
+    function{
+            let a=2;
+             var b=20;
+             console.log(b) //20 will be printed 
+         }
+
+    
+    3] Block scope: Variable that is declared inside a specific block & can't be accessed 
+    outside of that block.
+     Ex-
+    {
+     var a=2;
+    }
+    console.log(a)
+   
+    4] Scope chain: When we declare a function inside the function and declare some variable inside inner function and outer function as well.Then when we try to access the variable inside inner function and if we do not get it then it start searching in outer function that is called scope chain.
+     Ex->
+    function foo(){
+       let a=20;
+         function fooo(){
+       console.log(a);
+        }
+    }
+=================================================================================================
+
+  que4
+
+  What is difference between null and undefined and where to use what?
+
+  ans:
+
+  There are several differences between null and undefined, which are sometimes understood 
+  as the same.
+
+ Definition:
+
+ 1] Null: 
+
+ It is the intentional absence of the value.
+
+ It is one of the primitive values of JavaScript.
+
+ In JavaScript, undefined is a type, whereas null an object.
+
+ Type:
+
+ Null: Object 
+
+ You can see refer to “==” vs “===” article.
+
+ null == undefined // true
+ null === undefined // false
+
+ Examples:
+
+ null ? console.log("true") : console.log("false") // false
+
+ Null is also referred as false.
+
+ Whereas, null in JavaScript is an assignment value. You can assign it to a variable.
+
+ For example,
+
+ var demo = null;
+ alert(demo); //shows null
+ alert(typeof demo); //shows object
+
+ 2] Undefined: 
+
+ a] It means the value does not exist in the compiler. It is the global object.
+
+ b] It means a variable declared, but no value has been assigned a value.
+
+ Type:
+
+ Undefined: undefined
+
+ * It means null is equal to undefined but not identical.
+
+ For example,
+ var demo;
+ alert(demo); //shows undefined
+ alert(typeof demo); //shows undefined
+ Example 1:**************
+
+ When variable is not assigned a value--------------->
+
+ var temp;
+ if(temp === undefined)
+ console.log("true");
+ else
+ console.log("false");
+
+  //Output: true
+
+ Example 2:*****************
+
+ Accessing values which does not exist----------------------->
+ 
+ var temp=['a','b','c'];
+ if(temp[3] === undefined)
+ console.log("true");
+ else
+ console.log("false");
+ 
+ //Output:
+ true
+    
+=============================================================================================================
+
+que5
+what is Symbol?
+
+ans:----
+ 1] Symbol is a primitive data type of JavaScript, along with string, number, boolean, 
+ null and undefined. 
+
+ 2] Symbol is built in object whose constructor returns a symbol also called Symbol value 
+ or just symbol that's guaranteed to be unique Symbols are immutable(means once defined 
+ cannot be changed) and unique.
+
+ for ex:--------
+ const value1 = Symbol("Hello world");
+ const value2 = Symbol("Hello world");
+ console.log(value1===value2);     // false
+
+==================================================================================================================
+
+que6
+Write code to explain map and filter in arrays
+
+ans:
+1] Map in array---------------->
+When to use map: 
+If we want to perform the same operation/transformation on each element of the array and 
+get back a new array of the same length with the transformed values.
+
+For ex:-------
+var numbers= [1,2,3,4,5];
+var array  = numbers.map(n => n * 2);
+array; // [2,4,6,8,10]
+
+2] filter in arrays------------->
+When to use filter : 
+Every element of the array is passed to the callback function.
+On each iteration, if the callback returns true, then that element will be added to 
+the new array, otherwise, it is not added to the new array.
+
+For ex-----------------------
+
+var numbers = [1,2,3,4,5];
+var element = numbers.filter(n => n > 2);
+element; // [3,4,5]       
+
+
+
+======================================================================================================================
+
+que7
+Explain passed by value and passed by reference
+
+ans:
+1] Pass by value means direct value will be passed during calling the function.
+2] Pass by reference means address or reference of that value will be passed.
+
+The main difference between pass by value and pass by reference is that, in a 
+pass by value, the parameter value copies to another variable while, 
+in a pass by reference, the actual parameter passes to the function.
+
+ex:
+   let a=2
+   let b=a;
+   function value(a){
+   return a;
+
+=================================================================================================================
+
+que8
+Please explain Self Invoking Function and its code
+
+ans:
+
+Self Invoking function means we don't need to call that function.It will be generated 
+just after defining that function.
+Ex- (function () {
+         console.log('Hello')
+ }());
+
+
+
+ **************************************************************************************************************************
